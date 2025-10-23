@@ -41,7 +41,7 @@ jobs:
       
     - name: Training
       run: |
-        python screening_net.py
+        python screening_net_res.py
         
 
 
