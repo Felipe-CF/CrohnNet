@@ -10,7 +10,7 @@ from sklearn.preprocessing import OneHotEncoder
 def dataframe_preprocessing():
     file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    dataset_dir = file_dir + '\\db\\DataCrohnIPI_2021_03\\DataCrohnIPI'
+    dataset_dir = file_dir + '/db/DataCrohnIPI_2021_03/DataCrohnIPI'
 
     dataframe_path = os.path.join(dataset_dir, 'CrohnIPI_description.csv')
 

@@ -42,10 +42,10 @@ def create_sets(kfolds):
 
     file_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     
-    dataset_dir = file_dir + '\\db\\DataCrohnIPI_2021_03\\DataCrohnIPI\\'
+    dataset_dir = file_dir + '/db/DataCrohnIPI_2021_03/DataCrohnIPI/'
 
     training_set = data_gen.flow_from_dataframe(
-        directory= dataset_dir + '\\imgs',
+        directory= dataset_dir + '/imgs',
         dataframe=training_df,
         y_col=[0, 1],
         x_col=2,
@@ -56,7 +56,7 @@ def create_sets(kfolds):
     )
 
     validation_set = data_gen.flow_from_dataframe(
-        directory= dataset_dir + '\\imgs',
+        directory= dataset_dir + '/imgs',
         dataframe=validation_df,
         y_col=[0, 1],
         x_col=2,

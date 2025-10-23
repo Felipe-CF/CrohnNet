@@ -9,9 +9,9 @@ from util.preprocessing import dataframe_preprocessing
 def invalid_files(dir_path, valid_extensions={'.jpg', '.png', '.jpeg'}):
         list_dir = []
 
-        list_dir.append(dir_path + '\\cats')
+        list_dir.append(dir_path + '/cats')
 
-        list_dir.append(dir_path + '\\dogs')
+        list_dir.append(dir_path + '/dogs')
 
         for dir in list_dir:
             files = os.listdir(dir)
