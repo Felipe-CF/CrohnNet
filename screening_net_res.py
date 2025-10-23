@@ -2,13 +2,12 @@ import keras
 from util.sets import *
 from util.history import *
 from util.hyperparameters import *
-from storage.teste import *
-# from create_screening_net import *
+from create_screening_net import *
 from keras.optimizers import SGD
 from keras.losses import BinaryCrossentropy
 
 
-if __name__ == '__main__':
+def main():
     file_dir = os.path.dirname(os.path.abspath(__file__))
 
     screening_net = create_load_net()
@@ -38,7 +37,7 @@ if __name__ == '__main__':
         screening_net.fit(
             training_set, 
             steps_per_epoch=steps_per_epoch, 
-            epochs=100,
+            epochs=10,
             validation_data=validation_set,
             validation_steps=43,
             verbose=1,
@@ -46,6 +45,13 @@ if __name__ == '__main__':
             callbacks=[model_checkpoint(checkpoint_dir), learning_rate_plateau(), early_stopping()]
         )
 
-    # save_history(history=screening_net.history, file_dir=file_dir, fold_test_n=fold_test_n)
+
+    save_history(history=screening_net.history, file_dir=file_dir, fold_test_n=fold_test_n)
+
+    print("modelo treinado")
+
+
+if __name__ == '__main__':
+    main()
 
 
