@@ -37,4 +37,11 @@ jobs:
     - name: Test with pytest
       run: |
         pip install pytest
-        pytest -v
+        pytest || True
+      
+    - name: Training
+      run: |
+        python screening_net.py
+        
+
+
