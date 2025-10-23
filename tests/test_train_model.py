@@ -4,7 +4,7 @@ import subprocess
 def test_modelo():
 
     resultado = subprocess.run(
-        ["python", "screening_net.py"],
+        ["python", "/workspaces/CrohnNet/screening_net_res.py"],
         capture_output=True,
         text=True
     )
