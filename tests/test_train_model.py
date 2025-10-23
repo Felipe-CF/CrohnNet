@@ -4,7 +4,7 @@ import subprocess
 def test_modelo():
 
     resultado = subprocess.run(
-        ["python", "screening.net"],
+        ["python", "screening_net.py"],
         capture_output=True,
         text=True
     )
