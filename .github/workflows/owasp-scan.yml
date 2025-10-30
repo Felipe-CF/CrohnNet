@@ -1,32 +1,36 @@
-   on:
-     workflow_dispatch:
-     push:
-     pull_request:
+name: OWASP Dependency Check
 
-   jobs:
-     dependency-check:
-       runs-on: ubuntu-latest
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
 
-       steps:
-         - name: Checkout código
-           uses: actions/checkout@v4
+jobs:
+  dependency-check:
+    runs-on: ubuntu-latest
 
-         - name: Instalar Java (requisito do OWASP)
-           uses: actions/setup-java@v4
-           with:
-             distribution: 'temurin'
-             java-version: '17'
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
 
-         - name: Rodar OWASP Dependency Check
-           uses: dependency-check/Dependency-Check_Action@main
-           with:
-             project: 'Python Security Scan'
-             scan: '.'
-             format: 'HTML'
-             out: 'reports'
+      - name: Instalar Java (requisito do OWASP)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
 
-         - name: Upload do relatório
-           uses: actions/upload-artifact@v4
-           with:
-             name: owasp-report
-             path: reports
+      - name: Rodar OWASP Dependency Check
+        uses: dependency-check/Dependency-Check_Action@main
+        with:
+          project: 'Python Security Scan'
+          path: '.'
+          format: 'HTML'
+          out: 'reports'
+        env:
+          JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.16-8/x64
+
+      - name: Upload do relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: owasp-report
+          path: reports
