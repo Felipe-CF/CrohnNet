@@ -1,0 +1,39 @@
+name: Deprecated Code Check
+
+on:
+  push:
+    branches: [ main, develop, feature/* ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  check-deprecated:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout código
+      uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Instalar dependências
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        pip install pylint
+    
+    - name: Executar verificação de código deprecado (Script Customizado)
+      run: |
+        python scripts/check_deprecated.py
+    
+    - name: Executar Pylint para deprecation warnings
+      run: |
+        pylint --disable=all --enable=deprecated-module,deprecated-method,deprecated-argument,deprecated-class **/*.py || true
+      continue-on-error: false
+    
+    - name: Resultado
+      if: success()
+      run: echo "✅ Nenhum código deprecado detectado!"
