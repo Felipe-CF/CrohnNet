@@ -4,7 +4,23 @@
        directory: "/"
        schedule:
          interval: "weekly"
-       open-pull-requests-limit: 5
-       ignore:
-         - dependency-name: "django"
-           versions: ["<3.0.0"]
+       labels:
+          - "dependabot:python"
+       groups:
+          github-actions:
+            - "*"
+
+     - package-ecosystem: "github-actions"
+       directory: "/"
+       schedule:
+         interval: "weekly"
+       labels:
+          - "dependabot:actions"
+
+
+     - package-ecosystem: "devcontainers"
+       directory: "/"
+       schedule:
+         interval: "weekly"
+       labels:
+          - "dependabot:devcontainer"
