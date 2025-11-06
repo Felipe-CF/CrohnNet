@@ -1,17 +1,17 @@
-name: SonarQube Analysis
+name: SonarCloud Scan
 
 on:
   push:
   pull_request:
 
 jobs:
-  sonar:
-    name: Run SonarQube Analysis
+  sonarcloud:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout código
+      - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  
 
       - name: Configurar Python
         uses: actions/setup-python@v5
@@ -23,12 +23,12 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Rodar análise SonarCloud
+      - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
-        with:
-          projectBaseDir: .
-          args: >
-            -Dsonar.projectKey=Felipe-CF_CrohNet
-            -Dsonar.organization=Felipe-CF
         env:
           SONAR_TOKEN: ${{ secrets.CROH_NET_SECRET }}
+        with:
+          args: >
+            -Dsonar.projectKey=Felipe-CF_CrohnNet
+            -Dsonar.organization=felipe-cf
+            -Dsonar.python.version=3.10
