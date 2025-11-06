@@ -31,7 +31,7 @@ jobs:
     
     - name: Executar Pylint para deprecation warnings
       run: |
-        pylint --disable=all --enable=deprecated-module,deprecated-method,deprecated-argument,deprecated-class **/*.py || true
+        pylint --disable=all --enable=deprecated-module,deprecated-method,deprecated-argument,deprecated-class **/*.py
       continue-on-error: false
     
     - name: Resultado
