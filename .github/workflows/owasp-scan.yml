@@ -33,7 +33,6 @@ jobs:
         with:
           project: 'Python Security Scan'
           path: '.'
-          args: '--scan ./requirements.txt --enableExperimental'
           format: 'HTML'
           out: 'reports'
 
