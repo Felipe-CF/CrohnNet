@@ -1,10 +1,25 @@
-   version: 2
-   updates:
-     - package-ecosystem: "pip"
-       directory: "/"
-       schedule:
-         interval: "weekly"
-       open-pull-requests-limit: 5
-       ignore:
-         - dependency-name: "django"
-           versions: ["<3.0.0"]
+version: 2
+updates:
+  # Atualizações de dependências Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:python"
+
+  # Atualizações de GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:actions"
+
+  # Atualizações do Dev Container (Codespaces)
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:devcontainer"
