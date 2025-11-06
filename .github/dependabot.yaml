@@ -1,26 +1,25 @@
-   version: 2
-   updates:
-     - package-ecosystem: "pip"
-       directory: "/"
-       schedule:
-         interval: "weekly"
-       labels:
-          - "dependabot:python"
-       groups:
-          github-actions:
-            - "*"
+version: 2
+updates:
+  # Atualizações de dependências Python
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:python"
 
-     - package-ecosystem: "github-actions"
-       directory: "/"
-       schedule:
-         interval: "weekly"
-       labels:
-          - "dependabot:actions"
+  # Atualizações de GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:actions"
 
-
-     - package-ecosystem: "devcontainers"
-       directory: "/"
-       schedule:
-         interval: "weekly"
-       labels:
-          - "dependabot:devcontainer"
+  # Atualizações do Dev Container (Codespaces)
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependabot:devcontainer"
