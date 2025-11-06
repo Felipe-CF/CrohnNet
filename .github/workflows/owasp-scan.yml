@@ -40,7 +40,7 @@ jobs:
         run: cat reports/dependency-check-report.html
 
       - name: Upload do relatório
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: owasp-report
           path: reports
