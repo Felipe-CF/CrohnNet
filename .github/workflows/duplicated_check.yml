@@ -22,5 +22,4 @@ jobs:
 
       - name: Verificar Código Duplicado
         run: |
-          # Falha se encontrar código duplicado (R0801)
           pylint --disable=all --enable=duplicate-code .
