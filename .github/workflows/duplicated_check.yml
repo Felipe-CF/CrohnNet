@@ -1,0 +1,26 @@
+name: Duplicate Code Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-duplication:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Instalar Pylint
+        run: pip install pylint
+
+      - name: Verificar Código Duplicado
+        run: |
+          # Falha se encontrar código duplicado (R0801)
+          pylint --disable=all --enable=duplicate-code .
