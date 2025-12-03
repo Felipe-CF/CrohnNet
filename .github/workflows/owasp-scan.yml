@@ -36,11 +36,11 @@ jobs:
       #     format: 'HTML'
       #     out: 'reports'
 
-      - name: Mostrar resultado no console
-        run: cat reports/dependency-check-report.html
+      # - name: Mostrar resultado no console
+      #   run: cat reports/dependency-check-report.html
 
-      - name: Upload do relatório
-        uses: actions/upload-artifact@v5
-        with:
-          name: owasp-report
-          path: reports
+      # - name: Upload do relatório
+      #   uses: actions/upload-artifact@v5
+      #   with:
+      #     name: owasp-report
+      #     path: reports
