@@ -25,7 +25,7 @@ jobs:
 
       - name: SonarCloud Scan
         # Atualizado para a nova action oficial para evitar o warning de 'deprecated'
-        uses: SonarSource/sonarqube-scan-action@v5.0.0 
+        uses: SonarSource/sonarqube-scan-action@v6.0.0 
         env:
           SONAR_TOKEN: ${{ secrets.CROH_NET_SECRET }}
         with:
