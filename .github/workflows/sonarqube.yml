@@ -33,4 +33,3 @@ jobs:
             -Dsonar.projectKey=Felipe-CF_CrohnNet
             -Dsonar.organization=fcf230800
             -Dsonar.sources=.
-            -Dsonar.exclusions=**/migrations/**,**/__pycache__/**,**/tests/**
