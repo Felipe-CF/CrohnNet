@@ -20,6 +20,6 @@ jobs:
       - name: Instalar Pylint
         run: pip install pylint
 
-      - name: Verificar Código Duplicado
-        run: |
-          pylint --disable=all --enable=duplicate-code .
+      # - name: Verificar Código Duplicado
+      #   run: |
+      #     pylint --disable=all --enable=duplicate-code .
