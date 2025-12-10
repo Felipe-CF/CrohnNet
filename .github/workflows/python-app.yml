@@ -51,7 +51,7 @@ jobs:
           python manage.py graph_models -a -g -o diagram.png
     
     - name: Save UML
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v5
       with:
         name: uml-diagram
         path: diagram.png
