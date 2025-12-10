@@ -48,7 +48,7 @@ jobs:
 
     - name: Diagram UML
       run: |
-          python manage.py graph_models -a -g -o diagram.png
+          python clinica/manage.py graph_models -a -g -o diagram.png
     
     - name: Save UML
       uses: actions/upload-artifact@v5
