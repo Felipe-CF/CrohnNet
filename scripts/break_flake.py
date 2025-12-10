@@ -6,6 +6,6 @@ class QuebrandoFlake():
         print(self.__teste)
 
 
-if __name__ == '__main__':
-    quebrando = QuebrandoFlake()
-    print(quebrando.metodo())
+quebrando = QuebrandoFlake()
+
+print(quebrando.metodo())
