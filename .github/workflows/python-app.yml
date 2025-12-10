@@ -39,3 +39,19 @@ jobs:
       run: |
         pip install pytest
         pytest || true
+    
+    - name: Install UML
+      run: |
+          pip install django-extensions pydotplus graphviz
+          sudo apt-get update
+          sudo apt-get install -y graphviz
+
+    - name: Diagram UML
+      run: |
+          python manage.py graph_models -a -g -o diagram.png
+    
+    - name: Save UML
+      uses: actions/upload-artifact@v3
+      with:
+        name: uml-diagram
+        path: diagram.png
