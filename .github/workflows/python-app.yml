@@ -51,7 +51,7 @@ jobs:
           python clinica/manage.py graph_models -a -g -o diagram.png
     
     - name: Save UML
-      uses: actions/upload-artifact@v5
+      uses: actions/upload-artifact@v6
       with:
         name: uml-diagram
         path: diagram.png
