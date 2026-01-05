@@ -20,10 +20,10 @@ jobs:
       - name: Instalar Pylint
         run: pip install pylint
 
-      - name: Verificar Código Duplicado
+      - name: Verificar Código Duplicado, Elif (Switch Statements) e Dead Code
         run: |
           pylint --disable=all \
-          --enable=duplicate-code --min-similarity-lines=20 \
+          --enable=duplicate-code, no-else-return, no-else-raise, unused-import, unused-variable --min-similarity-lines=20 \
           --ignore=migrations \
           .
 
@@ -31,12 +31,5 @@ jobs:
         run: |
           pylint --fail-under=9.5 --disable=all \
           --enable=format --max-module-lines=500 --max-line-length=200  \
-          --ignore=migrations \
-          .
-
-      - name: Verificar Elifs (Object-Orientation Abusers - Switch Statements)
-        run: |
-          pylint --disable=all \
-          --enable=elif --max-nested-blocks=4 \
           --ignore=migrations \
           .
