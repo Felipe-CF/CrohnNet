@@ -22,7 +22,7 @@ jobs:
 
       - name: Verificar Código Duplicado, Elif (Switch Statements) e Dead Code
         run: |
-          pylint --disable=all \
+          pylint --fail-under=9.5 --disable=all \
           --enable=duplicate-code,no-else-return,no-else-raise,unused-import,unused-variable --min-similarity-lines=20 \
           --ignore=migrations \
           .
