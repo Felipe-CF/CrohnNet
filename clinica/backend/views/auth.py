@@ -54,8 +54,7 @@ class LoginView(ObtainAuthToken):
 
             return Response(response_data)
 
-        else:
-            return Response({'mensagem': 'Login ou senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
+        return Response({'mensagem': 'Login ou senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class LogoutView(APIView):
