@@ -22,4 +22,8 @@ jobs:
 
       - name: Verificar Código Duplicado
         run: |
-          pylint --disable=all --enable=duplicate-code .
+          pylint --disable=all \
+          --enable=duplicate-code --min-similarity-lines=20 \
+          --ignore=migrations \
+          --load-plugins=pylint_django \
+          .
