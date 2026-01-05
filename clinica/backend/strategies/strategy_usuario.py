@@ -10,22 +10,22 @@ class ProfissionalStrategy(UsuarioStrategy):
     def validar_usuario(self, request):
         profissional = getattr(request.user, 'pro', None)
         if not profissional:
-            raise PermissionDenied("Usuario não é um profissional") 
-        return profissional  
+            raise PermissionDenied("Usuario não é um profissional")
+        return profissional
 
 class AdminStrategy(UsuarioStrategy):
     def validar_usuario(self, request):
         admin = getattr(request.user, 'admin', None)
         if not admin:
-            raise PermissionDenied("Usuario não é um admin") 
-        return admin  
+            raise PermissionDenied("Usuario nao é um admin")
+        return admin
 
 class PacienteStrategy(UsuarioStrategy):
     def validar_usuario(self, request):
         paciente = getattr(request.user, 'pac', None)
         if not paciente:
-            raise PermissionDenied("Usuario não é um paciente") 
-        return paciente  
+            raise PermissionDenied("Usuario não é um paciente")
+        return paciente
 
 class ConsultaStrategy():
 
@@ -33,18 +33,18 @@ class ConsultaStrategy():
         paciente = getattr(request.user, 'pac', None)
 
         if not paciente:
-            raise PermissionDenied("Usuario não é um paciente") 
-        
-        return paciente  
-    
+            raise PermissionDenied("Usuario não é um paciente")
+
+        return paciente
+
     def validar_consulta(self, request):
         profissional = getattr(request.user, 'pro', None)
 
         if not profissional:
-            raise PermissionDenied("Usuario não é um profissional") 
-        
-        return profissional  
-    
+            raise PermissionDenied("Usuario não é um profissional")
+
+        return profissional
+
     def validar_alteracao(self, request):
         paciente = getattr(request.user, 'pac', None)
 
@@ -52,11 +52,11 @@ class ConsultaStrategy():
             profissional = getattr(request.user, 'pro', None)
 
             if not profissional:
-                raise PermissionDenied("Usuario não pode acessar a consulta") 
-            
+                raise PermissionDenied("Usuario não pode acessar a consulta")
+
             return profissional
 
         return paciente
-      
-        
+
+
 

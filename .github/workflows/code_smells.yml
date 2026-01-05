@@ -25,7 +25,6 @@ jobs:
           pylint --disable=all \
           --enable=duplicate-code --min-similarity-lines=20 \
           --ignore=migrations \
-          --load-plugins=pylint_django \
           .
 
       - name: Verificar Formato de Módulos (Bloaters - Long Method)
@@ -33,7 +32,6 @@ jobs:
           pylint --disable=all \
           --enable=format --max-module-lines=500 --max-line-length=200 \
           --ignore=migrations \
-          --load-plugins=pylint_django \
           .
 
       - name: Verificar Elifs (Object-Orientation Abusers - Switch Statements)
@@ -41,5 +39,4 @@ jobs:
           pylint --disable=all \
           --enable=elif --max-nested-blocks=4 \
           --ignore=migrations \
-          --load-plugins=pylint_django \
           .
