@@ -6,7 +6,7 @@ class PacienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Paciente
         fields = '__all__'
-        
+
     def create(self, validated_data):
         usuario_data = validated_data.pop('usuario')
 
@@ -19,9 +19,8 @@ class PacienteSerializer(serializers.ModelSerializer):
         paciente = Paciente.objects.create(user=novo_usuario, **validated_data)
 
         return paciente
-    
+
     def update(self, instance, validated_data):
-        instance = super().update(instance, validated_data) 
-        
+        instance = super().update(instance, validated_data)
         return instance
 

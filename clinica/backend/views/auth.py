@@ -11,7 +11,7 @@ from rest_framework.decorators import authentication_classes, permission_classes
 
 
 class LoginView(ObtainAuthToken):
-    
+
     def post(self, request, *args, **kwargs):
         username = request.data.get('username')
         password = request.data.get('password')
@@ -25,7 +25,7 @@ class LoginView(ObtainAuthToken):
             if not created:
                 token.delete()
                 token = Token.objects.create(user=usuario)
-            
+
             response_data = {
                 'token': token.key,
                 'username': usuario.username,
@@ -40,7 +40,7 @@ class LoginView(ObtainAuthToken):
                 if usuario_data is not None:
                     usuario_response = PacienteSerializer(usuario_data).data
                     del usuario_response['user']
-                        
+
                     response_data['dados_usuario'] = usuario_response
 
             elif usuario.perfil == 'pro':
@@ -55,7 +55,7 @@ class LoginView(ObtainAuthToken):
             return Response(response_data)
 
         else:
-            return Response({'mensagem': 'Login ou Senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
+            return Response({'mensagem': 'Login ou senha invalido'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class LogoutView(APIView):
