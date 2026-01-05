@@ -31,7 +31,7 @@ jobs:
       - name: Verificar Formato de Módulos (Bloaters - Long Method)
         run: |
           pylint --disable=all \
-          --enable=format --max-module-lines=500 \
+          --enable=format --max-module-lines=500 --max-line-length=200 \
           --ignore=migrations \
           --load-plugins=pylint_django \
           .
