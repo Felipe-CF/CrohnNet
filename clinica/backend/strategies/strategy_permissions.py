@@ -17,24 +17,24 @@ class ProfissionalPermission(PermissaoStrategy):
         if action in ['create', 'partial_update', 'destroy']:
             return [IsAuthenticated()]
         return [AllowAny()]
-    
+
 class PacientePermission(PermissaoStrategy):
     def get_permissions(self, action):
         if action in ['partial_update', 'update', 'retrieve', 'list', 'destroy']:
             return [IsAuthenticated()]
         return [AllowAny()]
-    
+
     def validar(self, user):
         if user.perfil == 'admin':
-            raise ValueError("Acao permitida somente para pacientes")
-        
+            raise ValueError("Acao permitida somente aos pacientes")
+
 class ConsultaPermission(PermissaoStrategy):
     def get_permissions(self, action):
 
         if action in ['create', 'partial_update', 'retrieve', 'list', 'destroy']:
             return [IsAuthenticated()]
         return [AllowAny()]
-    
+
     def validar(self, user):
         if user.perfil != 'pac':
             raise ValueError("Acao permitida somente para pacientes")
@@ -44,17 +44,17 @@ class AdminPermission(PermissaoStrategy):
         if action in ['create', 'partial_update', 'destroy']:
             return [IsAuthenticated()]
         return [AllowAny()]
-    
+
     def validar(self, user):
         if user.perfil != 'admin':
             raise ValueError("Acao permitida somente para adiministradores")
-        
+
 class EspecialidadePermission(PermissaoStrategy):
     def get_permissions(self, action):
         if action in ['create', 'partial_update', 'destroy']:
             return [IsAuthenticated()]
         return [AllowAny()]
-    
+
     def validar(self, user):
         if user.perfil != 'admin':
             raise ValueError("Acao permitida somente para adiministradores")

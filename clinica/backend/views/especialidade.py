@@ -80,7 +80,7 @@ class EspecialidadeView(viewsets.ModelViewSet):
 
             return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
 
-        except Exception as e:
+        except Exception:
             return Response({'erro': 'Problema na API'}, status=status.HTTP_404_NOT_FOUND)
 
     def destroy(self, request, *args, **kwargs):
@@ -96,5 +96,5 @@ class EspecialidadeView(viewsets.ModelViewSet):
 
             return Response({"erro": "Campos obrigatórios ausentes na requisição"}, status=status.HTTP_406_NOT_ACCEPTABLE)
 
-        except Exception as e:
+        except Exception:
             return Response({'erro': 'Problema na API'}, status=status.HTTP_404_NOT_FOUND)
