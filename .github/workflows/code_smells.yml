@@ -33,3 +33,9 @@ jobs:
           --enable=format --max-module-lines=500 --max-line-length=200  \
           --ignore=migrations \
           .
+
+      - name: Instalar bandit
+        run: pip install bandit
+
+      - name: Verificar Segurança
+        run: bandit -r . --exclude ./tests,./venv,./scripts
