@@ -1,5 +1,6 @@
 asgiref==3.10.0
 astroid==4.0.2
+bandit==1.9.2
 colorama==0.4.6
 dill==0.4.0
 Django==5.2.7
@@ -11,11 +12,14 @@ drf-yasg==1.21.11
 graphviz==0.21
 inflection==0.5.1
 isort==7.0.0
+markdown-it-py==4.0.0
 mccabe==0.7.0
+mdurl==0.1.2
 packaging==25.0
 platformdirs==4.5.0
 psycopg2-binary==2.9.11
 pydotplus==2.0.2
+Pygments==2.19.2
 PyJWT==2.10.1
 pylint==4.0.4
 pylint-django==2.7.0
@@ -23,7 +27,9 @@ pylint-plugin-utils==0.9.0
 pyparsing==3.2.5
 pytz==2025.2
 PyYAML==6.0.3
+rich==14.2.0
 sqlparse==0.5.3
+stevedore==5.6.0
 tomli==2.3.0
 tomlkit==0.13.3
 typing_extensions==4.15.0
