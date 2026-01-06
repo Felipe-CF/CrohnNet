@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from backend.models.profisssional import Profissional
-from backend.serializer.usuario import UsuarioSerializer
+from backend.serializer.usuario import UsuarioSerializer, Usuario
 
 
 class ProfissionalSerializer(serializers.ModelSerializer):

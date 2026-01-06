@@ -6,10 +6,10 @@ from .endereco import Endereco
 
 class Paciente(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    nome = models.CharField(blank=False, null=False)
+    nome = models.CharField(blank=False, null=False, max_length=100)
     data_criacao = models.DateTimeField(auto_now_add=True)
-    cpf = models.CharField(max_length=11, blank=False, null=False, )
-    contato = models.CharField(default='sem telefone', null=False, )
+    cpf = models.CharField(max_length=11, blank=False, null=False)
+    contato = models.CharField(default='sem telefone', null=False, max_length=100)
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, blank=False, null=False, related_name='endereco')
     user = models.OneToOneField(Usuario, on_delete=models.CASCADE, blank=False, null=False, related_name='usuario_pac')
 
