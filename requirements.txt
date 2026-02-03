@@ -3,7 +3,7 @@ astroid==4.0.2
 bandit==1.9.2
 colorama==0.4.6
 dill==0.4.0
-Django==5.2.7
+Django==5.2.11
 django-extensions==4.1
 django-filter==25.2
 djangorestframework==3.16.1
